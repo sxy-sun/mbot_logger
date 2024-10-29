@@ -1,0 +1,13 @@
+[Unit]
+Description=MBot battery Data Logger Service
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5
+ExecStart=/usr/local/etc/battery_logger.py
+User=mbot
+
+[Install]
+WantedBy=network-online.target
