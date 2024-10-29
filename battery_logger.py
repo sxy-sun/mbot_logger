@@ -12,7 +12,7 @@ log_file_path = os.path.expanduser('~/mbot_ws/mbot_logger/mbot_battery_log.csv')
 os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
 
 try:
-    f = open(log_file_path, 'a', newline='')
+    f = open(log_file_path, 'a', newline='', buffering=1)
     writer = csv.writer(f)
     if f.tell() == 0:
         writer.writerow(['utime', 'volts_0', 'volts_1', 'volts_2', 'battery_voltage'])
@@ -35,6 +35,7 @@ def log_mbot_analog_in(channel, data, writer):
             volts = msg.volts
             timestamp = utime / 1e6
             writer.writerow([timestamp, *volts])
+            f.flush()  # Flush buffer to file
             last_log_time = current_time
         except Exception as e:
             print(f"Error logging data: {e}")
