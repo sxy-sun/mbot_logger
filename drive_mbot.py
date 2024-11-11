@@ -22,17 +22,17 @@ def send_command(vx, wz):
 
 try:
     while True:
-        # Move forward
-        send_command(fwd_vel, 0.0)
-        time.sleep(move_time)
-        send_command(0.0, 0.0)  # Stop
-        time.sleep(rest_time)
+        # # Move forward
+        # send_command(fwd_vel, 0.0)
+        # time.sleep(move_time)
+        # send_command(0.0, 0.0)  # Stop
+        # time.sleep(rest_time)
 
-        # Move backward
-        send_command(backward_vel, 0.0)
-        time.sleep(move_time)
-        send_command(0.0, 0.0)  # Stop
-        time.sleep(rest_time)
+        # # Move backward
+        # send_command(backward_vel, 0.0)
+        # time.sleep(move_time)
+        # send_command(0.0, 0.0)  # Stop
+        # time.sleep(rest_time)
 
         # Turn clockwise
         send_command(0.0, turn_vel_cw)
